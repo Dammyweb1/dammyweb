@@ -120,23 +120,20 @@ export default function Header() {
               </div>
 
               {/* Navigation Links */}
-              <nav className="flex flex-col p-6 gap-4">
+              <nav className="flex flex-col p-6 gap-4 max-w-xs mx-auto">
                 {navLinks.map((link, index) => (
-                  <motion.div
+                  <motion.a
                     key={link.name}
+                    href={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
+                    className="flex items-center gap-3 px-4 py-3 text-lg text-muted-foreground hover:text-foreground transition-all duration-200 group relative"
                   >
-                    <Link
-                      href={link.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="flex items-center gap-3 px-4 py-3 text-lg text-muted-foreground hover:text-foreground transition-all duration-200 group relative"
-                    >
-                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 group-hover:w-full transition-all duration-300" />
-                      {link.name}
-                    </Link>
-                  </motion.div>
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 group-hover:w-full transition-all duration-300" />
+                    {link.name}
+                  </motion.a>
                 ))}
               </nav>
 

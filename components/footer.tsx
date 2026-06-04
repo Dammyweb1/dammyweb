@@ -1,13 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Twitter, Github, Linkedin } from "lucide-react";
+import { Twitter, Github, Facebook } from "lucide-react";
 import Link from "next/link";
 
 const socialLinks = [
-  { name: "Twitter", icon: Twitter, href: "#" },
+  { name: "Facebook", icon: Facebook, href: "#" },
+  { name: "Twitter X", icon: Twitter, href: "#" },
   { name: "GitHub", icon: Github, href: "#" },
-  { name: "LinkedIn", icon: Linkedin, href: "#" },
 ];
 
 export default function Footer() {
