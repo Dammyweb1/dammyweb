@@ -34,11 +34,11 @@ export default function Header() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 gap-8 h-16 md:h-20 items-center">
+        <div className="grid md:grid-cols-2 gap-8 h-14 md:h-20 items-center">
           {/* Left Column - Logo and Mobile Menu Button */}
           <div className="flex items-center justify-between w-full md:w-auto">
             <Link href="#home" className="flex items-center gap-2">
-              <img className="max-w-44" src="dammyweb_logo.png" alt="" />
+              <img className="max-w-32 sm:max-w-40 md:max-w-44" src="dammyweb_logo.png" alt="" />
             </Link>
             {/* Mobile Menu Button */}
             <button
@@ -46,7 +46,7 @@ export default function Header() {
               className="md:hidden p-2 text-foreground hover:bg-accent rounded-lg transition-colors"
               aria-label="Toggle menu"
             >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
             </button>
           </div>
 
@@ -103,24 +103,24 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 h-full w-2/3 max-w-xs bg-background z-50 md:hidden shadow-2xl"
+              className="fixed top-0 right-0 h-full w-3/4 sm:w-2/3 max-w-xs bg-background z-50 md:hidden shadow-2xl"
             >
               {/* Offcanvas Header */}
-              <div className="flex items-center justify-between p-6 border-b border-border/50">
+              <div className="flex items-center justify-between p-4 sm:p-6 border-b border-border/50">
                 <Link href="#home" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2">
-                  <img className="max-w-44" src="dammyweb_logo.png" alt="" />
+                  <img className="max-w-32 sm:max-w-40 md:max-w-44" src="dammyweb_logo.png" alt="" />
                 </Link>
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="p-2 text-muted-foreground hover:text-foreground hover:bg-accent rounded-lg transition-colors"
                   aria-label="Close menu"
                 >
-                  <X className="w-6 h-6" />
+                  <X className="w-5 h-5 sm:w-6 sm:h-6" />
                 </button>
               </div>
 
               {/* Navigation Links */}
-              <nav className="flex flex-col p-6 gap-4 max-w-xs mx-auto">
+              <nav className="flex flex-col p-4 sm:p-6 gap-3 sm:gap-4 max-w-xs mx-auto">
                 {navLinks.map((link, index) => (
                   <motion.a
                     key={link.name}
@@ -129,7 +129,7 @@ export default function Header() {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className="flex items-center gap-3 px-4 py-3 text-lg text-muted-foreground hover:text-foreground transition-all duration-200 group relative"
+                    className="flex items-center gap-3 px-3 sm:px-4 py-2 sm:py-3 text-base sm:text-lg text-muted-foreground hover:text-foreground transition-all duration-200 group relative"
                   >
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 group-hover:w-full transition-all duration-300" />
                     {link.name}
@@ -138,7 +138,7 @@ export default function Header() {
               </nav>
 
               {/* Download Resume Button */}
-              <div className="absolute bottom-8 left-6 right-6">
+              <div className="absolute bottom-6 sm:bottom-8 left-4 sm:left-6 right-4 sm:right-6">
                 <motion.a
                   href="/resume.pdf"
                   target="_blank"
@@ -148,16 +148,16 @@ export default function Header() {
                   transition={{ delay: 0.4 }}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-purple-600 to-purple-800 text-white rounded-full font-medium hover:from-purple-700 hover:to-purple-900 transition-all shadow-lg shadow-purple-500/25"
+                  className="w-full flex items-center justify-center gap-2 px-4 sm:px-6 py-3 sm:py-4 bg-gradient-to-r from-purple-600 to-purple-800 text-white rounded-full text-sm sm:text-base font-medium hover:from-purple-700 hover:to-purple-900 transition-all shadow-lg shadow-purple-500/25"
                 >
-                  <Download className="w-5 h-5" />
+                  <Download className="w-4 h-4 sm:w-5 sm:h-5" />
                   Download Resume
                 </motion.a>
               </div>
 
               {/* Decorative Elements */}
-              <div className="absolute top-20 right-4 w-32 h-32 bg-purple-500/10 rounded-full blur-3xl" />
-              <div className="absolute bottom-32 left-4 w-24 h-24 bg-pink-500/10 rounded-full blur-3xl" />
+              <div className="absolute top-20 right-4 w-24 h-24 sm:w-32 sm:h-32 bg-purple-500/10 rounded-full blur-3xl" />
+              <div className="absolute bottom-24 sm:bottom-32 left-4 w-20 h-20 sm:w-24 sm:h-24 bg-pink-500/10 rounded-full blur-3xl" />
             </motion.div>
           </>
         )}
