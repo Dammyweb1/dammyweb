@@ -138,7 +138,7 @@ export default function Header() {
               </nav>
 
               {/* Download Resume Button */}
-              <div className="absolute bottom-6 sm:bottom-8 left-4 sm:left-6 right-4 sm:right-6">
+              <div className="px-4 sm:px-6 pt-2 pb-4 sm:pb-6 max-w-xs mx-auto">
                 <motion.a
                   href="/resume.pdf"
                   target="_blank"
