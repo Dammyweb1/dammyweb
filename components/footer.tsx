@@ -16,9 +16,9 @@ const TwitterXIcon = ({ className }: { className?: string }) => (
 );
 
 const socialLinks = [
-  { name: "Facebook", icon: Facebook, href: "#" },
+  { name: "Facebook", icon: Facebook, href: "https://web.facebook.com/damilola.web/" },
   { name: "Twitter X", icon: TwitterXIcon, href: "#" },
-  { name: "GitHub", icon: Github, href: "#" },
+  { name: "GitHub", icon: Github, href: "https://github.com/Dammyweb1" },
 ];
 
 export default function Footer() {
