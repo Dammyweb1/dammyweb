@@ -16,6 +16,7 @@ export default function Header() {
   const { scrollY } = useScroll();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const unsubscribe = scrollY.on("change", (latest) => {
@@ -23,6 +24,30 @@ export default function Header() {
     });
     return () => unsubscribe();
   }, [scrollY]);
+
+  useEffect(() => {
+    const sections = navLinks.map(link => link.href.replace("#", ""));
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.3
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(section => {
+      const element = document.getElementById(section);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <motion.header
@@ -54,21 +79,26 @@ export default function Header() {
           <div className="flex items-center justify-end gap-8">
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-8">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  {link.name}
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = activeSection === link.href.replace("#", "");
+                return (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className={`text-sm transition-colors ${
+                      isActive ? "text-purple-400 font-medium" : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
             </nav>
 
             {/* Download Resume Button */}
             <div className="hidden md:block">
               <motion.a
-                href="/resume.pdf"
+                href="/dammyweb_resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
@@ -103,10 +133,10 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 h-full w-3/4 sm:w-2/3 max-w-xs bg-background z-50 md:hidden shadow-2xl"
+              className="fixed top-0 right-0 h-screen w-3/4 sm:w-2/3 max-w-xs bg-background z-50 md:hidden shadow-2xl"
             >
-              {/* Offcanvas Header */}
-              <div className="flex items-center justify-between p-4 sm:p-6 border-b border-border/50">
+                {/* Offcanvas Header */}
+                <div className="flex items-center justify-between p-4 sm:p-6 border-b border-border/50">
                 <Link href="#home" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2">
                   <img className="max-w-32 sm:max-w-40 md:max-w-44" src="dammyweb_logo.png" alt="" />
                 </Link>
@@ -121,26 +151,33 @@ export default function Header() {
 
               {/* Navigation Links */}
               <nav className="flex flex-col p-4 sm:p-6 gap-3 sm:gap-4 max-w-xs mx-auto">
-                {navLinks.map((link, index) => (
-                  <motion.a
-                    key={link.name}
-                    href={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="flex items-center gap-3 px-3 sm:px-4 py-2 sm:py-3 text-base sm:text-lg text-muted-foreground hover:text-foreground transition-all duration-200 group relative"
-                  >
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 group-hover:w-full transition-all duration-300" />
-                    {link.name}
-                  </motion.a>
-                ))}
+                {navLinks.map((link, index) => {
+                  const isActive = activeSection === link.href.replace("#", "");
+                  return (
+                    <motion.a
+                      key={link.name}
+                      href={link.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      className={`flex items-center gap-3 px-3 sm:px-4 py-2 sm:py-3 text-base sm:text-lg transition-all duration-200 group relative ${
+                        isActive ? "text-purple-400 font-medium" : "text-muted-foreground hover:text-foreground"
+                      }`}
+                    >
+                      <span className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 transition-all duration-300 ${
+                        isActive ? "w-full" : "w-0 group-hover:w-full"
+                      }`} />
+                      {link.name}
+                    </motion.a>
+                  );
+                })}
               </nav>
 
               {/* Download Resume Button */}
               <div className="px-4 sm:px-6 mt-12 sm:mt-16 pb-4 sm:pb-6 max-w-xs mx-auto">
                 <motion.a
-                  href="/resume.pdf"
+                  href="/dammyweb_resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   initial={{ opacity: 0, y: 20 }}
