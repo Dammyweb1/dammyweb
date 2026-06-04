@@ -29,8 +29,8 @@ export default function Header() {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/80 backdrop-blur-md border-b border-border/50" : ""
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? "bg-black/90 backdrop-blur-md border-b border-border/50 shadow-md" : ""
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -138,7 +138,7 @@ export default function Header() {
               </nav>
 
               {/* Download Resume Button */}
-              <div className="px-4 sm:px-6 pt-2 pb-4 sm:pb-6 max-w-xs mx-auto">
+              <div className="px-4 sm:px-6 mt-12 sm:mt-16 pb-4 sm:pb-6 max-w-xs mx-auto">
                 <motion.a
                   href="/resume.pdf"
                   target="_blank"

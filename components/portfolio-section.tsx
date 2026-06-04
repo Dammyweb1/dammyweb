@@ -25,9 +25,9 @@ const projects = [
   },
   {
     id: 4,
-    title: "Project 4",
+    title: "A4 African",
     description: "Dashboard application",
-    image: "/project4.jpg",
+    image: "/a4african.png",
   },
 ];
 
