@@ -6,39 +6,39 @@ import { useState } from "react";
 
 const faqs = [
   {
-    question: "How is Uvodo different from other eCommerce platforms?",
+    question: "What technologies do you specialize in?",
     answer:
-      "Uvodo offers a unique combination of simplicity, powerful features, and competitive pricing that sets it apart from other platforms.",
+      "I specialize in modern web development technologies including React, Next.js, JavaScript, HTML5, CSS3, Tailwind CSS, and various design tools like Figma and Photoshop. I also have experience with WordPress and Bootstrap.",
   },
   {
-    question: "Can I use my own domain with Uvodo?",
+    question: "Do you work as a remote developer?",
     answer:
-      "Yes, you can connect your existing domain. Uvodo also provides a forever free .uvo.do domain suffix to all sellers upon creating an account.",
+      "Yes, I have extensive experience working as a remote developer and instructor. I'm comfortable collaborating with diverse teams and clients across various industries and time zones.",
   },
   {
-    question: "Can I sell my products with Uvodo without creating an online store?",
+    question: "Can you work with existing codebases?",
     answer:
-      "Yes, Uvodo allows you to sell products directly through various channels without the need for a full online store setup.",
+      "Absolutely. I'm highly adaptable and comfortable working with existing stacks. Whether it's maintaining legacy code or integrating new features into established projects, I can seamlessly join your team.",
   },
   {
-    question: "Is there a setup fee for using Uvodo?",
+    question: "What types of projects do you work on?",
     answer:
-      "No, there is no setup fee. You can start selling immediately after creating your account.",
+      "I work on a wide range of projects including web applications, e-commerce platforms, automation solutions, data management portals, and custom software development. I'm passionate about solving real-world business challenges.",
   },
   {
-    question: "In what countries can I use Uvodo?",
+    question: "Do you offer design services as well?",
     answer:
-      "Uvodo is available globally in most countries. Check our documentation for specific regional availability.",
+      "Yes, I have design skills using tools like Figma, Photoshop, and Canva. I can help with UI/UX design, prototyping, and creating visually appealing interfaces that complement the technical implementation.",
   },
   {
-    question: "Are there any transaction fees or commissions?",
+    question: "Are you available for freelance projects?",
     answer:
-      "Uvodo charges minimal transaction fees that are competitive with industry standards. Check our pricing page for details.",
+      "Yes, I'm available for freelance projects and contract work. Feel free to reach out through the contact form or connect with me on social media to discuss your project requirements.",
   },
   {
-    question: "Can I customize my Uvodo store?",
+    question: "What is your approach to learning new technologies?",
     answer:
-      "Yes, Uvodo offers extensive customization options including themes, colors, fonts, and layout configurations.",
+      "I'm continuously learning and staying updated with the latest industry trends. I believe in hands-on learning and quickly adapt to new tools and frameworks as needed for each project.",
   },
 ];
 
@@ -59,7 +59,7 @@ export default function FAQSection() {
           <h2 className="text-4xl sm:text-5xl font-bold">
             <span className="text-foreground">Frequently </span>
             <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Ask Question
+              Asked Questions
             </span>
           </h2>
         </motion.div>
