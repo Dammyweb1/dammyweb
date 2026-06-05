@@ -15,7 +15,7 @@ const techStack = [
   { name: "Photoshop", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-original.svg" },
   { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
   { name: "Canva", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" },
-  { name: "CorelDraw", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/coreldraw/coreldraw-original.svg" },
+  { name: "CorelDraw", icon: "https://img.icons8.com/fluency/96/coreldraw-2021.png" },
 ];
 
 export default function CareerSection() {

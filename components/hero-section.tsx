@@ -13,7 +13,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-background to-background" />
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-purple-600/20 to-transparent" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16 md:pt-20 md:pb-20">
         <div className="grid md:grid-cols-2 gap-6 md:gap-44 items-center">
           {/* Left Column - Text Content */}
           <motion.div
@@ -51,7 +51,7 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="relative flex justify-center w-full order-2 md:order-2"
           >
-            <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem]">
+            <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem]">
               {/* Purple glow effect */}
               <div className="absolute inset-0 bg-gradient-to-b from-purple-500/50 to-transparent rounded-full blur-3xl" />
               <Image
