@@ -1,8 +1,19 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Facebook } from "lucide-react";
+import { Github } from "lucide-react";
 import Link from "next/link";
+
+const TikTokIcon = ({ className }: { className?: string }) => (
+  <svg
+    className={className}
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M20.57 8.64a6.47 6.47 0 0 1-2.52-.6 4.46 4.46 0 0 1-2.61-4.06H12.8v12.84a5.91 5.91 0 1 1-5.91-5.91V9.31a2.74 2.74 0 0 0 2.74 2.74 2.77 2.77 0 0 0 2.76-2.7V2.17h3.42a6.5 6.5 0 0 0 4.78 6.47z" />
+  </svg>
+);
 
 const TwitterXIcon = ({ className }: { className?: string }) => (
   <svg
@@ -16,8 +27,8 @@ const TwitterXIcon = ({ className }: { className?: string }) => (
 );
 
 const socialLinks = [
-  { name: "Facebook", icon: Facebook, href: "https://web.facebook.com/damilola.web/" },
-  { name: "Twitter X", icon: TwitterXIcon, href: "#" },
+  { name: "TikTok", icon: TikTokIcon, href: "https://www.tiktok.com/@dammyweb" },
+  { name: "Twitter X", icon: TwitterXIcon, href: "https://x.com/@dammywebreal" },
   { name: "GitHub", icon: Github, href: "https://github.com/Dammyweb1" },
 ];
 
